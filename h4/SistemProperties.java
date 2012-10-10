@@ -20,8 +20,7 @@ public class SistemProperties{
 	if(System.getProperty(str)!=null){
    
 	output.add(System.getProperty(str));
-     
-`	}   
+	}   
   }
   
   String[] result = new String[output.size()];
