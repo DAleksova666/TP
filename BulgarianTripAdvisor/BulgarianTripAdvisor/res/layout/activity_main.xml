@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:background ="@drawable/wall2">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="300sp"
+        android:layout_height="50sp"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:background="#4E9258"
+        android:textStyle="italic"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:onClick="LoginScreen"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="300sp"
+        android:layout_height="50sp"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="21dp"
+        android:textStyle="italic"
+        android:background="#4E9258"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:onClick="RegisterScreen"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="300sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="#4E9258"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:textSize="30sp"
+        android:onClick="HotelsScreen"
+        android:text="Hotels" />
+  
+</RelativeLayout>
