@@ -6,73 +6,72 @@
 
 class Array
 
-def to_hash(array)
+def to_hash
 	numbers = Hash.new
-	array.each do |couple|
+	each do |couple|
         	numbers = numbers.merge!({couple[0]=>couple[1]})
         end
-	p numbers
+	numbers
 end
 
-def index_by(array)
+def index_by
       numbers = Hash.new
-      array.each do |item|
+      each do |item|
 		numbers = numbers.merge!({(yield item) => item})
       end
-      p numbers
+      numbers
 end
    
-def subarray_count(array,arr)
+def subarray_count(arr)
     	 count = 0
-   	 array.each_cons(2) do |elem, next_elem|
+   	 each_cons(2) do |elem, next_elem|
     		if elem==arr[0]
 			if next_elem==arr[1]
 				count=count+1
 			end
 		end
     	 end
-  	 p count
+  	 count
 end
 
-def occurences_count(array)
+def occurences_count
 	numbers = Hash.new(0)
-	array.each do |item|
+	each do |item|
 	   numbers[item] += 1
 	end
-	p numbers
 	numbers
 end
 
-def densities(array)
+def densities
 	hash = Hash.new(0)
 	numbers = []
 	i=0
-	array.each do |item|
+	each do |item|
 	   hash[item] += 1
 	end
-	array.each do |item|
-		if hash.key?(array[item])
+	each do |item|
+		if hash.key?(item)
 			numbers[i]=hash[item]
 			i=i+1
 		end
 	end
-	p numbers
+	numbers
 end
 
 end
 
 arr=Array.new
 
-arr.to_hash([[1,2],[3,4],[1,6]])
+p [[1,2],[3,4],[1,6]].to_hash
 
-arr.index_by(['Hayden Panettiere','Emilia Clarke']){|name| name.split(' ').last}
-arr.index_by(['Gabbie','Danielle']){|s| s.length}
+p ['Hayden Panettiere','Emilia Clarke'].index_by {|name| name.split(' ').last}
+p (['Gabbie','Danielle']).index_by {|s| s.length}
 
-arr.subarray_count([1,1,2,2,1,1,1],[1,1])
+p [1,1,2,2,1,1,1].subarray_count([1,1])
 
-arr.occurences_count(['a','c','a','b'])
+p ['a','c','a','b'].occurences_count
 
-arr.densities([1,2,1])
+p [1,2,1].densities
 
 
 
