@@ -2,22 +2,22 @@
 #Клас: 11 Б
 #Номер: 12
 #Име: Даниела Яворова Алексова
-#Задача: 
+#Задача: https://docs.google.com/document/d/1DF14IHfXhcXVVYX8QRmOV-Ay5ZuJzP6mYvb05GvPa34/edit
 
 class Song
         attr_accessor :name, :artist, :genre, :subgenre, :tags
 
-        def initialize(array,additional={})
+        def initialize(array,dictionary={})
                 array.each do |element| 
 			element.strip!
 		end
                 @name=array[0]
                 @artist=array[1]
-		create_tags(array[3],additional)
+		create_tags(array[3],dictionary)
                 create_genre(array[2].split(","))
         end
         
-        def create_tags(array,additional)
+        def create_tags(array,dictionary)
                 @tags=[]
                 if array != nil 
                         @tags=array.split(",")
@@ -25,8 +25,8 @@ class Song
 				element.strip!
 			end
                 end
-		if additional.has_key?(@artist) 
-                        additional[@artist].each do |element| 
+		if dictionary.has_key?(@artist) 
+                        dictionary[@artist].each do |element| 
 				@tags.insert(-1,element.to_s)
 			end
                 end
@@ -42,7 +42,7 @@ class Song
                 end
         end
       
-        def show    
+        def display   
 		subg=""            
                 if @subgenre!="" 
 	       		subg=","+@subgenre 	 
@@ -53,18 +53,18 @@ class Song
 end
 
 class Collection
-        def initialize(songs_as_string,additional={})
+        def initialize(songs_as_string,dictionary={})
                 @songs=[]
                 numSongs=0
                 strings=songs_as_string.split("\n")
                 strings.map {|elem| 
 			elem.sub "\n",""
 			song=elem.split(".")
-                        @songs[numSongs]=Song.new(song,additional)
+                        @songs[numSongs]=Song.new(song,dictionary)
                         numSongs=numSongs+1}  
         end
         
-        def select(songs,criteria)
+        def selectByTags(songs,criteria)
 		if criteria.is_a?  String
 			criteria=[criteria] 
 		end
@@ -76,26 +76,32 @@ class Collection
 			end 
 		end
         end
+	
+	def printing(songs)
+		if songs.empty?
+			p songs
+		else		
+                	songs.each do |song| 
+				song.display
+			end
+		end
+	end
         
         def find(criterias={})
                 songs=Array(@songs)
                 criterias.each do|criteria| 
 			case criteria[0]
 				when :tags
-					select(songs,criteria[1]) 
+					selectByTags(songs,criteria[1]) 
 			        when :filter 
-					songs.select!{|song| criteria[1].call song}
-			        else 
-			                songs.select!{|song| song.send(criteria[0])==criteria[1]} 
+					songs.select!{|song| criteria[1].call(song)}
+			        when :name
+					songs.select!{|song| song.name.==criteria[1]}
+				when :artist 
+			                songs.select!{|song| song.artist.eql?criteria[1]} 
 			end 
 		end	
-		if songs.empty?
-			p songs
-		else		
-                	songs.each do |song| 
-				song.show 
-			end
-		end
+		printing(songs)
         end
 end
 songs_as_string="My Favourite Things.   John Coltrane.   Jazz,Bebop.   popular, cover
@@ -119,9 +125,16 @@ Toccata e Fuga.               Bach.            Classical, Baroque. popular
 Goldberg Variations.          Bach.            Classical, Baroque.
 Eine Kleine Nachtmusik.       Mozart.          Classical.    popular, violin
 "
-collection=Collection.new(songs_as_string)
+collection=Collection.new(songs_as_string,{
+					'John Coltrane' => %w[saxophone],
+					'Bach' => %w[piano polyphony]})
 
-collection.find artist: 'Miles Davis'
+collection.find artist: 'Bach'
+#collection.find tags: %w[classical popular!]
+#collection.find tags: 'popular', artist: 'John Coltrane'
+#collection.find filter: ->(song) { song.name.start_with?('My') }
+
+
 
 
 
