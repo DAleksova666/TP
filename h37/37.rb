@@ -36,7 +36,7 @@ class Song
                 @subgenre=""
                 @genre=array[0]
                 @tags.push(@genre.downcase)
-                if array.size!=1 then
+                if array.size>1 then
                         @subgenre=array[1]
                         @tags.push(@subgenre.downcase)
                 end
@@ -58,7 +58,6 @@ class Collection
                 numSongs=0
                 strings=songs_as_string.split("\n")
                 strings.map {|elem| 
-			elem.sub "\n",""
 			song=elem.split(".")
                         @songs[numSongs]=Song.new(song,dictionary)
                         numSongs=numSongs+1}  
@@ -121,14 +120,14 @@ Ruby, My Dear.                Thelonious Monk. Jazz.           saxophone
 Fur Elise.                    Beethoven.       Classical.      popular
 Moonlight Sonata.             Beethoven.       Classical.      popular
 Pathetique.                   Beethoven.       Classical.
-Toccata e Fuga.               Bach.            Classical, Baroque. popular
-Goldberg Variations.          Bach.            Classical, Baroque.
+Toccata e Fuga.               Bach.            Classical,Baroque. popular
+Goldberg Variations.          Bach.            Classical,Baroque.
 Eine Kleine Nachtmusik.       Mozart.          Classical.    popular, violin
 "
 collection=Collection.new(songs_as_string,{
 					'John Coltrane' => %w[saxophone],
 					'Bach' => %w[piano polyphony]})
-
+#collection.find 
 collection.find artist: 'Bach'
 #collection.find tags: %w[classical popular!]
 #collection.find tags: 'popular', artist: 'John Coltrane'
