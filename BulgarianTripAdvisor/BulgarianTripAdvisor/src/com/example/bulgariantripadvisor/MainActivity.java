@@ -16,45 +16,45 @@
  */
 
 package com.example.bulgariantripadvisor;
+
 import android.view.View;
+import android.view.Window;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	public void LoginScreen(View view) {
-		 Intent intent = new Intent(this, LoginActivity.class);
-		 startActivity(intent);
-	}
-
-	
-	public void RegisterScreen(View view){
+		    
+	public void RegisterActivity(View view){
 		Intent intent = new Intent(this, RegisterActivity.class);
 		startActivity(intent);
 	}
+
+	public void LoginActivity(View view){
+		Intent intent = new Intent(this, LoginActivity.class);
+		startActivity(intent);
+	}
 	
-	public void HotelsScreen(View view){
+	public void HotelsActivity(View view){
 		Intent intent = new Intent(this, HotelsActivity.class);
 		startActivity(intent);
 	}
-    
 }

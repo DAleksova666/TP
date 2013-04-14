@@ -1,89 +1,17 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/lemon_chifon"
-    tools:context=".HotelsActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
 
-    <ImageView
-        android:id="@+id/hilton2"
-        android:layout_width="300sp"
-        android:layout_height="200sp"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/hilton2" />
 
     <TextView
-        android:id="@+id/hiltonSofia"
-        android:layout_width="200sp"
+        android:id="@+id/label"
+        android:layout_width="300sp"
         android:layout_height="50sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Hilton Sofia"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="italic" />
-
-    <Button
-        android:id="@+id/contactsHilton"
-        android:layout_width="130sp"
-        android:layout_height="50sp"
-        android:layout_alignRight="@+id/hilton2"
-        android:layout_below="@+id/pricesHilton"
-        android:layout_marginRight="17dp"
-        android:layout_marginTop="20dp"
-        android:background="#F52887"
+        android:text="@+id/label"
         android:textStyle="italic"
-        android:textColor="#FFFFFF"
-        android:text="Contacts" />
+        android:textSize="30sp" >
+    </TextView>
 
-    <Button
-        android:id="@+id/aboutHilton"
-        android:layout_width="130sp"
-        android:layout_height="50sp"
-        android:layout_alignBaseline="@+id/contactsHilton"
-        android:layout_alignBottom="@+id/contactsHilton"
-        android:layout_alignLeft="@+id/pricesHilton"
-        android:background="#F52887"
-        android:textStyle="italic"
-        android:textColor="#FFFFFF"
-        android:text="About" />
-
-    <Button
-        android:id="@+id/galleryHilton"
-        android:layout_width="130sp"
-        android:layout_height="50sp"
-        android:layout_alignBaseline="@+id/pricesHilton"
-        android:layout_alignBottom="@+id/pricesHilton"
-        android:layout_alignLeft="@+id/contactsHilton"
-        android:background="#F52887"
-        android:textStyle="italic"
-        android:textColor="#FFFFFF"
-        android:onClick="OpenGallery"
-        android:text="Gallery" />
-
-    <RatingBar
-        android:id="@+id/ratingHilton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/hilton2"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/pricesHilton"
-        android:layout_width="130sp"
-        android:layout_height="50sp"
-        android:layout_alignLeft="@+id/hilton2"
-        android:layout_below="@+id/ratingHilton"
-        android:layout_marginTop="20dp"
-        android:background="#F52887"
-        android:text="Prices"
-        android:textColor="#FFFFFF"
-        android:textStyle="italic" />
-
-</RelativeLayout>
+</LinearLayout>

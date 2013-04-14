@@ -1,11 +1,8 @@
 package com.example.bulgariantripadvisor;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
+import java.util.List;
 import android.app.Activity;
-import android.os.AsyncTask;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -15,28 +12,33 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class LoginActivity extends Activity {
 
-	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"foo@abv.bg:hello", "bar@abv.bg:world" };
-
 	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
+	public static final String USERNAME = "username";
+	public List<String[]> names2 =null ;
+	
+	private DataManipulator dh;
 
-	private UserLoginTask mAuthTask = null;
 	private String mEmail;
 	private String mPassword;
-
+	
+	private int suc =0;
 	private EditText mEmailView;
 	private EditText mPasswordView;
 	private View mLoginFormView;
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
+	static final int DIALOG_ID = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
+		dh = new DataManipulator(this);
+	    names2 = dh.selectAll();
 
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.email);
@@ -59,14 +61,14 @@ public class LoginActivity extends Activity {
 		mLoginFormView = findViewById(R.id.login_form);
 		mLoginStatusView = findViewById(R.id.login_status);
 		mLoginStatusMessageView = (TextView) findViewById(R.id.login_status_message);
-
-		findViewById(R.id.sign_in_button).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
-						attemptLogin();
-					}
-				});
+	}
+	
+	public void singingIn(View view) {
+		attemptLogin();
+		if (suc==1){
+			 Intent intent = new Intent(this, ChooseActivity.class);
+			    startActivity(intent);
+		}
 	}
 
 	@Override
@@ -77,10 +79,6 @@ public class LoginActivity extends Activity {
 	}
 
 	public void attemptLogin() {
-		if (mAuthTask != null) {
-			return;
-		}
-		
 		mEmailView.setError(null);
 		mPasswordView.setError(null);
 
@@ -113,85 +111,24 @@ public class LoginActivity extends Activity {
 		if (cancel) {
 			focusView.requestFocus();
 		} else {
-			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
-			showProgress(true);
-			mAuthTask = new UserLoginTask();
-			mAuthTask.execute((Void) null);
-		}
-	}
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-	private void showProgress(final boolean show) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-			int shortAnimTime = getResources().getInteger(
-					android.R.integer.config_shortAnimTime);
-
-			mLoginStatusView.setVisibility(View.VISIBLE);
-			mLoginStatusView.animate().setDuration(shortAnimTime)
-					.alpha(show ? 1 : 0)
-					.setListener(new AnimatorListenerAdapter() {
-						@Override
-						public void onAnimationEnd(Animator animation) {
-							mLoginStatusView.setVisibility(show ? View.VISIBLE
-									: View.GONE);
-						}
-					});
-
-			mLoginFormView.setVisibility(View.VISIBLE);
-			mLoginFormView.animate().setDuration(shortAnimTime)
-					.alpha(show ? 0 : 1)
-					.setListener(new AnimatorListenerAdapter() {
-						@Override
-						public void onAnimationEnd(Animator animation) {
-							mLoginFormView.setVisibility(show ? View.GONE
-									: View.VISIBLE);
-						}
-					});
-		} else {
-			mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
-			mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-		}
-	}
-
-
-	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-		@Override
-		protected Boolean doInBackground(Void... params) {
-
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				return false;
-			}
-
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					return pieces[1].equals(mPassword);
-				}
-			}
-
-			return false;
-		}
-
-		@Override
-		protected void onPostExecute(final Boolean success) {
-			mAuthTask = null;
-			showProgress(false);
-
-			if (success) {
-				finish();
-			} else {
-				mPasswordView
+			for (String[] name : names2) {
+				if (name[2].equals(mEmail)) {
+					if(name[3].equals(mPassword)){
+						suc=1;
+						break;
+					}else{
+						mPasswordView
 						.setError(getString(R.string.error_incorrect_password));
 				mPasswordView.requestFocus();
+					}
+				
+				}
 			}
-		}
-
-		@Override
-		protected void onCancelled() {
-			mAuthTask = null;
-			showProgress(false);
+			if (suc!=1){
+				mEmailView.setError(getString(R.string.error_incorrect_email));
+		        mEmailView.requestFocus();
+			}
 		}
 	}
 }

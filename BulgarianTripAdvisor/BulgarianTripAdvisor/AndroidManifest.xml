@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/CustomTheme" >
         <activity
             android:name="com.example.bulgariantripadvisor.MainActivity"
             android:label="@string/app_name" >
@@ -24,11 +24,18 @@
         </activity>
         <activity
             android:name="com.example.bulgariantripadvisor.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
             android:parentActivityName="com.example.bulgariantripadvisor.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bulgariantripadvisor.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.bulgariantripadvisor.HotelsActivity"
+            android:label="@string/title_activity_hotels" >
+        </activity>
+        <activity
+            android:name="com.example.bulgariantripadvisor.RegisterActivity"
+            android:label="@string/title_activity_register" >
         </activity>
         <activity
             android:name="com.example.bulgariantripadvisor.LoginActivity"
@@ -36,39 +43,25 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="com.example.bulgariantripadvisor.Display"
-            android:label="@string/title_activity_display" >
+            android:name="com.example.bulgariantripadvisor.HotelActivity"
+            android:label="@string/title_activity_hotel" >
         </activity>
         <activity
-            android:name="com.example.bulgariantripadvisor.RegisterActivity"
-            android:label="@string/title_activity_register" >
+            android:name="com.example.bulgariantripadvisor.CityActivity"
+            android:label="@string/title_activity_city" >
         </activity>
         <activity
-            android:name="com.example.bulgariantripadvisor.Test"
-            android:label="@string/title_activity_test" >
+            android:name="com.example.bulgariantripadvisor.ChooseActivity"
+            android:label="@string/title_activity_choose" >
         </activity>
         <activity
-            android:name="com.example.bulgariantripadvisor.GetUsers"
-            android:label="@string/title_activity_get_users" >
+            android:name="com.example.bulgariantripadvisor.ThingsToDoActivity"
+            android:label="@string/title_activity_things_to_do" >
         </activity>
         <activity
-            android:name="com.example.bulgariantripadvisor.HotelsActivity"
-            android:label="@string/title_activity_hotels" >
+            android:name="com.example.bulgariantripadvisor.ThingActivity"
+            android:label="@string/title_activity_thing" >
         </activity>
-        <activity
-            android:name="com.example.bulgariantripadvisor.GalleryActivity"
-            android:label="@string/title_activity_gallery" >
-        </activity>
-        <activity
-            android:name="com.example.bulgariantripadvisor.PhotoSlideShowActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".FullImageActivity"></activity>
     </application>
 
 </manifest>

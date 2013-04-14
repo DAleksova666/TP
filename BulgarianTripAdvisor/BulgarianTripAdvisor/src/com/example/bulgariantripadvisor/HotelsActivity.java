@@ -1,28 +1,37 @@
 package com.example.bulgariantripadvisor;
 
+import com.example.bulgariantripadvisor.HotelsAdapter;
+
 import android.os.Bundle;
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
+import android.widget.ListView;
 
-public class HotelsActivity extends Activity {
+
+public class HotelsActivity extends ListActivity{
+	
+	static final String[] CITIES= new String[] {"Sofia"};
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_hotels);
+		setListAdapter(new HotelsAdapter(this, CITIES));
 	}
-
+	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.hotels, menu);
-		return true;
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+
+		String item = (String) getListAdapter().getItem(position);
+		
+		if (item.equals("Sofia"))
+		{
+			Intent intent = new Intent(this, CityActivity.class);
+			intent.putExtra("tablename", item);
+			startActivity(intent);
+		}
+			
 	}
 
-	public void OpenGallery(View view){
-		Intent intent = new Intent(this, GalleryActivity.class);
-		startActivity(intent);
-	}
+
 }

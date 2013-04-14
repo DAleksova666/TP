@@ -2,49 +2,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" 
-    android:background ="@drawable/wall2">
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="300sp"
-        android:layout_height="50sp"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:background="#4E9258"
-        android:textStyle="italic"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:onClick="LoginScreen"
-        android:text="Login" />
+    android:orientation="horizontal" >
 
     <Button
         android:id="@+id/button2"
         android:layout_width="300sp"
         android:layout_height="50sp"
         android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="21dp"
-        android:textStyle="italic"
-        android:background="#4E9258"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="132dp"
+        android:background="#000000"
+        android:onClick="RegisterActivity"
+        android:text="Register"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:onClick="RegisterScreen"
-        android:text="Register" />
+        android:textStyle="italic" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button1"
         android:layout_width="300sp"
         android:layout_height="50sp"
-        android:layout_below="@+id/button2"
+        android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:background="#4E9258"
+        android:layout_marginBottom="83dp"
+        android:background="#000000"
+        android:onClick="LoginActivity"
+        android:text="Login"
         android:textColor="#FFFFFF"
-        android:textStyle="italic"
         android:textSize="30sp"
-        android:onClick="HotelsScreen"
-        android:text="Hotels" />
-  
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Please sign in or register!"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="italic" />
+
+    
 </RelativeLayout>

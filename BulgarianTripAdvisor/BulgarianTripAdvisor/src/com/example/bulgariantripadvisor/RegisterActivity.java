@@ -1,109 +1,135 @@
 package com.example.bulgariantripadvisor;
+
+import java.util.List;
+
 import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
-public class RegisterActivity extends Activity{
-	
-	String username,password,email;
+public class RegisterActivity extends Activity implements OnClickListener {  
+	private DataManipulator dh;     
+	static final int DIALOG_ID = 0;
+	private boolean cancel;
+	public List<String[]> names2 =null ;
 
-    public SQLiteDatabase db;
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_register);
+        View add = findViewById(R.id.Button01add);
+		add.setOnClickListener(this);
+		View home = findViewById(R.id.Button01home);
+		home.setOnClickListener(this);           
+	}
 
-	TableRow tableRow;
-	TextView textView,textView1,textView2,textView3,textView4,textView5;
-	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        
-        db=openOrCreateDatabase("MyDB1",MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS Users(username VARCHAR,password VARCHAR,email VARCHAR);");
-    }
-	public void data(View view)
-	{
-	  EditText edittext1=(EditText )findViewById(R.id.username);
-	  EditText edittext2=(EditText )findViewById(R.id.password);
-	  EditText edittext3=(EditText )findViewById(R.id.email);
-	  username=edittext1.getText().toString();
-	  password=edittext2.getText().toString();
-	  email=edittext3.getText().toString();
-	  db.execSQL("INSERT INTO  Users VALUES('"+username+"','"+password+"','"+email+"');");
-		
-		 
+	public void onClick(View v){
+		switch(v.getId()){
+
+		case R.id.Button01home:
+			Intent i = new Intent(this, MainActivity.class);
+			startActivity(i);
+			break;
+
+		case R.id.Button01add:
+			cancel = false;
+			View editText1 = (EditText) findViewById(R.id.username);
+			View editText2 = (EditText) findViewById(R.id.email);
+			View editText3 = (EditText) findViewById(R.id.password);
+			String myEditText1=((TextView) editText1).getText().toString();
+			String myEditText2=((TextView) editText2).getText().toString();
+			String myEditText3=((TextView) editText3).getText().toString();
+
+			View focusView = null;
+			if (TextUtils.isEmpty(myEditText3)) {
+				((TextView) editText3).setError(getString(R.string.error_field_required));
+				focusView = editText3;
+				cancel=true;
+			} else if (myEditText3.length() < 4) {
+				((TextView) editText3).setError(getString(R.string.error_invalid_password));
+				focusView = editText3;
+				cancel=true;
+			}
+			if (TextUtils.isEmpty(myEditText1)) {
+				((TextView) editText1).setError(getString(R.string.error_field_required));
+				focusView = editText1;
+				cancel=true;
+			} else if (myEditText1.length() < 4) {
+				((TextView) editText1).setError(getString(R.string.error_invalid_username));
+				focusView = editText1;
+				cancel=true;
+			}
+			if (TextUtils.isEmpty(myEditText2)) {
+				((TextView) editText2).setError(getString(R.string.error_field_required));
+				focusView = editText2;
+				cancel = true;
+			} else if (!myEditText2.contains("@")) {
+				((TextView) editText2).setError(getString(R.string.error_invalid_email));
+				focusView = editText2;
+				cancel = true;
+			}
+			dh = new DataManipulator(this);
+		    names2 = dh.selectAll();
+		    View focusView2 = null;
+		    for (String[] name : names2) {
+				if (name[1].equals(myEditText1)) {
+					((TextView) editText1).setError(getString(R.string.error_existing_username));
+					focusView2 = editText1;
+					cancel=true;
+				}
+				if (name[2].equals(myEditText2)) {
+					((TextView) editText2).setError(getString(R.string.error_existing_email));
+					focusView2 = editText2;
+					cancel=true;
+				}
+				if (name[3].equals(myEditText3)) {
+					((TextView) editText3).setError(getString(R.string.error_existing_password));
+					focusView2 = editText3;
+					cancel=true;
+				}
+		    }		
+
+			if (!cancel){
+				this.dh = new DataManipulator(this);
+				this.dh.insert(myEditText1,myEditText2,myEditText3);
+				this.dh.close();
+				//showDialog(DIALOG_ID);
+				Intent intent = new Intent(this, ChooseActivity.class);
+			    startActivity(intent);
+			}
+
+            break;
+
+		}
+	}  
+	/*
+	protected final Dialog onCreateDialog(final int id) {
+		Dialog dialog = null;
+		switch(id) {
+		case DIALOG_ID:
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("Information saved successfully !")
+			.setCancelable(false)
+			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					RegisterActivity.this.finish();
+
+              }
+			});
+			AlertDialog alert = builder.create(); 
+			dialog = alert;
+			break;
+
+		default:
+
+		}
+		return dialog;
 	}
-	public void showdata(View view)
-	{
-	    Cursor c=db.rawQuery("SELECT * from Users", null);
-	    int count= c.getCount();
-	    c.moveToFirst();
-	    
-	    TableLayout tableLayout = new TableLayout(getApplicationContext());
-	    tableLayout.setVerticalScrollBarEnabled(true);
-	    TableRow tableRow;
-	    
-	    TextView textView,textView1,textView2,textView3,textView4,textView5;
-	    
-	    tableRow = new TableRow(getApplicationContext());
-	    
-	    textView=new TextView(getApplicationContext());
-	    textView.setText("Username");
-	    textView.setTextColor(Color.BLACK);
-	  	textView.setTypeface(null, Typeface.ITALIC);
-	  	textView.setPadding(20, 20, 20, 20);
-	  	
-	  	tableRow.addView(textView);
-	  	
-	    textView4=new TextView(getApplicationContext());
-	  	textView4.setText("Password");
-	  	textView4.setTextColor(Color.BLACK);
-	  	textView4.setTypeface(null, Typeface.ITALIC);
-	  	textView4.setPadding(20, 20, 20, 20);
-	  	 
-	  	tableRow.addView(textView4);
-	  	
-	    textView5=new TextView(getApplicationContext());
-	  	textView5.setText("Email");
-	  	textView5.setTextColor(Color.BLACK);
-	  	textView5.setTypeface(null, Typeface.ITALIC);
-	  	textView5.setPadding(20, 20, 20, 20);
-	  	
-	  	tableRow.addView(textView5);
-	  	
-	    tableLayout.addView(tableRow);
-	     for (Integer j = 0; j < count; j++)
-	     {
-	         tableRow = new TableRow(getApplicationContext());
-	         textView1 = new TextView(getApplicationContext());
-	         textView1.setText(c.getString(c.getColumnIndex("username")));
-	         textView2 = new TextView(getApplicationContext());
-	         textView2.setText(c.getString(c.getColumnIndex("password")));
-	         textView3 = new TextView(getApplicationContext());
-	         textView3.setText(c.getString(c.getColumnIndex("email")));
-	         textView1.setPadding(20, 20, 20, 20);
-	         textView2.setPadding(20, 20, 20, 20);
-	         textView3.setPadding(20, 20, 20, 20);
-	         tableRow.addView(textView1);
-	         tableRow.addView(textView2);
-	         tableRow.addView(textView3);
-	         tableLayout.addView(tableRow);
-	         c.moveToNext() ;
-	     }
-	     setContentView(tableLayout);
-	     
-	db.close();
-	}
-	
-	 
+*/
 
 }
+

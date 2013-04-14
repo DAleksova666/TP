@@ -28,99 +28,136 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int grand1=0x7f020000;
-        public static final int grand2=0x7f020001;
-        public static final int hilton1=0x7f020002;
-        public static final int hilton2=0x7f020003;
-        public static final int hilton3=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int wall=0x7f020006;
-        public static final int wall2=0x7f020007;
-        public static final int wallpaper1=0x7f020008;
-        public static final int wallpaper2=0x7f020009;
-        public static final int wallpaper3=0x7f02000a;
-        public static final int wallpaper5=0x7f02000b;
+        public static final int backgroundbudapesthotel=0x7f020000;
+        public static final int backgroundcentralparkhotel=0x7f020001;
+        public static final int backgroundgrandhotelsofia=0x7f020002;
+        public static final int backgroundhiltonsofia=0x7f020003;
+        public static final int backgroundholidayinnsofia=0x7f020004;
+        public static final int backgroundhotelanel=0x7f020005;
+        public static final int backgroundhotelmarialuisa=0x7f020006;
+        public static final int backgroundmetropolitanhotel=0x7f020007;
+        public static final int backgroundradissonblugrandhotelsofia=0x7f020008;
+        public static final int backgroundsheratonsofiahotelbalkan=0x7f020009;
+        public static final int budapesthotel=0x7f02000a;
+        public static final int centralparkhotel=0x7f02000b;
+        public static final int grandhotelsofia=0x7f02000c;
+        public static final int hiltonsofia=0x7f02000d;
+        public static final int holidayinnsofia=0x7f02000e;
+        public static final int hotelanel=0x7f02000f;
+        public static final int hotelmarialuisa=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int im1=0x7f020012;
+        public static final int im10=0x7f020013;
+        public static final int im2=0x7f020014;
+        public static final int im3=0x7f020015;
+        public static final int im4=0x7f020016;
+        public static final int im5=0x7f020017;
+        public static final int im6=0x7f020018;
+        public static final int im7=0x7f020019;
+        public static final int im8=0x7f02001a;
+        public static final int im9=0x7f02001b;
+        public static final int metropolitanhotel=0x7f02001c;
+        public static final int radissonblugrandhotelsofia=0x7f02001d;
+        public static final int sheratonsofiahotelbalkan=0x7f02001e;
     }
     public static final class id {
-        public static final int aboutHilton=0x7f090006;
-        public static final int action_forgot_password=0x7f090018;
-        public static final int action_settings=0x7f090017;
-        public static final int button1=0x7f090010;
-        public static final int button2=0x7f090012;
-        public static final int button3=0x7f090011;
-        public static final int contactsHilton=0x7f090004;
-        public static final int email=0x7f09000c;
-        public static final int full_image_view=0x7f090016;
-        public static final int galleryHilton=0x7f090007;
-        public static final int grid_view=0x7f090000;
-        public static final int hilton2=0x7f090001;
-        public static final int hiltonSofia=0x7f090003;
-        public static final int login=0x7f09000e;
-        public static final int login_form=0x7f09000b;
-        public static final int login_status=0x7f090009;
-        public static final int login_status_message=0x7f09000a;
-        public static final int password=0x7f09000d;
-        public static final int pricesHilton=0x7f090005;
-        public static final int ratingHilton=0x7f090008;
-        public static final int sign_in_button=0x7f09000f;
-        public static final int textView1=0x7f090002;
+        public static final int Button01add=0x7f090018;
+        public static final int Button01home=0x7f090017;
+        public static final int action_forgot_password=0x7f09001f;
+        public static final int action_settings=0x7f09001e;
+        public static final int button1=0x7f090000;
+        public static final int button2=0x7f090011;
+        public static final int email=0x7f09000d;
+        public static final int hotelcontacts=0x7f090005;
+        public static final int hoteldescription=0x7f090009;
+        public static final int hotelincludes=0x7f090008;
+        public static final int hotellayout=0x7f090003;
+        public static final int hotelname=0x7f090004;
+        public static final int hotelprices=0x7f090006;
+        public static final int hotelstars=0x7f090007;
+        public static final int label=0x7f090002;
+        public static final int login=0x7f09000f;
+        public static final int login_form=0x7f09000c;
+        public static final int login_status=0x7f09000a;
+        public static final int login_status_message=0x7f09000b;
+        public static final int logo=0x7f090001;
+        public static final int password=0x7f09000e;
+        public static final int sign_in_button=0x7f090010;
+        public static final int textView1=0x7f090012;
         public static final int textView2=0x7f090013;
         public static final int textView3=0x7f090014;
-        public static final int username=0x7f090015;
+        public static final int textView4=0x7f090015;
+        public static final int thing=0x7f09001d;
+        public static final int thingdescription=0x7f09001b;
+        public static final int thinglayout=0x7f090019;
+        public static final int thingname=0x7f09001a;
+        public static final int thingtype=0x7f09001c;
+        public static final int username=0x7f090016;
     }
     public static final class layout {
-        public static final int activity_gallery=0x7f030000;
-        public static final int activity_hotels=0x7f030001;
-        public static final int activity_login=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_register=0x7f030004;
-        public static final int full_image=0x7f030005;
+        public static final int activity_choose=0x7f030000;
+        public static final int activity_city=0x7f030001;
+        public static final int activity_hotel=0x7f030002;
+        public static final int activity_hotels=0x7f030003;
+        public static final int activity_login=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_register=0x7f030006;
+        public static final int activity_thing=0x7f030007;
+        public static final int activity_things_to_do=0x7f030008;
+        public static final int window_title=0x7f030009;
     }
     public static final class menu {
-        public static final int display=0x7f080000;
-        public static final int display_message=0x7f080001;
-        public static final int gallery=0x7f080002;
-        public static final int get_users=0x7f080003;
-        public static final int hotels=0x7f080004;
-        public static final int login=0x7f080005;
-        public static final int main=0x7f080006;
-        public static final int register=0x7f080007;
-        public static final int samo=0x7f080008;
-        public static final int test=0x7f080009;
+        public static final int choose=0x7f080000;
+        public static final int city=0x7f080001;
+        public static final int credits=0x7f080002;
+        public static final int display_database=0x7f080003;
+        public static final int display_db=0x7f080004;
+        public static final int hotel=0x7f080005;
+        public static final int hotels=0x7f080006;
+        public static final int login=0x7f080007;
+        public static final int main=0x7f080008;
+        public static final int register=0x7f080009;
+        public static final int sofia=0x7f08000a;
+        public static final int thing=0x7f08000b;
+        public static final int things_to_do=0x7f08000c;
     }
     public static final class string {
-        public static final int action_forgot_password=0x7f060014;
-        public static final int action_settings=0x7f060001;
-        public static final int action_sign_in_register=0x7f060012;
-        public static final int action_sign_in_short=0x7f060013;
-        public static final int app_name=0x7f060000;
-        public static final int button_send=0x7f060005;
-        public static final int edit_message=0x7f060004;
-        public static final int error_field_required=0x7f060019;
-        public static final int error_incorrect_password=0x7f060018;
-        public static final int error_invalid_email=0x7f060016;
-        public static final int error_invalid_password=0x7f060017;
-        public static final int hello_world=0x7f060002;
-        public static final int link_to_register=0x7f060008;
-        public static final int login_progress_signing_in=0x7f060015;
-        public static final int menu_settings=0x7f060006;
+        public static final int action_forgot_password=0x7f070013;
+        public static final int action_settings=0x7f070001;
+        public static final int action_sign_in_register=0x7f070011;
+        public static final int action_sign_in_short=0x7f070012;
+        public static final int app_name=0x7f070000;
+        public static final int button_send=0x7f070003;
+        public static final int edit_message=0x7f070002;
+        public static final int error_existing_email=0x7f07001a;
+        public static final int error_existing_password=0x7f07001c;
+        public static final int error_existing_username=0x7f07001b;
+        public static final int error_field_required=0x7f07001d;
+        public static final int error_incorrect_email=0x7f070019;
+        public static final int error_incorrect_password=0x7f070018;
+        public static final int error_invalid_email=0x7f070015;
+        public static final int error_invalid_password=0x7f070016;
+        public static final int error_invalid_username=0x7f070017;
+        public static final int hello_world=0x7f07000c;
+        public static final int login_progress_signing_in=0x7f070014;
+        public static final int menu_settings=0x7f070004;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f060010;
-        public static final int prompt_password=0x7f060011;
-        public static final int title_activity_display=0x7f060009;
-        public static final int title_activity_display_message=0x7f060003;
-        public static final int title_activity_gallery=0x7f06000e;
-        public static final int title_activity_get_users=0x7f06000c;
-        public static final int title_activity_hotels=0x7f06000d;
-        public static final int title_activity_login=0x7f06000f;
-        public static final int title_activity_main=0x7f060007;
-        public static final int title_activity_register=0x7f06000a;
-        public static final int title_activity_test=0x7f06000b;
+        public static final int prompt_email=0x7f07000f;
+        public static final int prompt_password=0x7f070010;
+        public static final int title_activity_choose=0x7f07000a;
+        public static final int title_activity_city=0x7f070009;
+        public static final int title_activity_hotel=0x7f070008;
+        public static final int title_activity_hotels=0x7f070007;
+        public static final int title_activity_login=0x7f07000e;
+        public static final int title_activity_main=0x7f070005;
+        public static final int title_activity_register=0x7f070006;
+        public static final int title_activity_thing=0x7f07000d;
+        public static final int title_activity_things_to_do=0x7f07000b;
     }
     public static final class style {
         /** 
@@ -139,19 +176,18 @@ public final class R {
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
  API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f050002;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int LoginFormContainer=0x7f070002;
+        public static final int AppTheme=0x7f050003;
+        public static final int CustomTheme=0x7f050001;
+        public static final int CustomWindowTitleBackground=0x7f050000;
+        public static final int LoginFormContainer=0x7f050004;
+        /**  Any customizations for your app running on 4.0+ devices here 
+         */
+        public static final int MyAppTheme=0x7f050005;
     }
     public static final class styleable {
         /** Attributes that can be used with a Gallery1.
