@@ -62,6 +62,38 @@ public class CityAdapter extends ArrayAdapter<String> {
 			imageView.setImageResource(R.drawable.sheratonsofiahotelbalkan);
 		}
 		
+		if (s.equals("Balneo Complex and Spa Aquatonik")) {
+			imageView.setImageResource(R.drawable.balneocomplexandspaaquatonik);
+		}
+		if (s.equals("Bor Spa-Club")) {
+			imageView.setImageResource(R.drawable.borspaclub);
+		}
+		if (s.equals("Spa Hotel Dvoretsa")) {
+			imageView.setImageResource(R.drawable.spahoteldvoretsa);
+		}
+		if (s.equals("Grand Hotel Velingrad")) {
+			imageView.setImageResource(R.drawable.grandhotelvelingrad);
+		}
+		if (s.equals("Park Hotel Olymp")) {
+			imageView.setImageResource(R.drawable.parkhotelolymp);
+		}
+		
+		if (s.equals("Majestic Hotel")) {
+			imageView.setImageResource(R.drawable.majestichotel);
+		}
+		if (s.equals("Iberostar Sunny Beach Resort")) {
+			imageView.setImageResource(R.drawable.iberostarsunnybeachresort);
+		}
+		if (s.equals("Helena Sands Hotel")) {
+			imageView.setImageResource(R.drawable.helenasandshotel);
+		}
+		if (s.equals("MPM Orpheus Boutique Hotel")) {
+			imageView.setImageResource(R.drawable.mpmorpheusboutiquehotel);
+		}
+		if (s.equals("Dune Hotel")) {
+			imageView.setImageResource(R.drawable.dunehotel);
+		}
+		
 		return rowView;
 	}
 }

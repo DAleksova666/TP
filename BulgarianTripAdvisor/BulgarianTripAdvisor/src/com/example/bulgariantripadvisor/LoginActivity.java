@@ -31,6 +31,7 @@ public class LoginActivity extends Activity {
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
 	static final int DIALOG_ID = 0;
+	private int passfail = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,10 @@ public class LoginActivity extends Activity {
 		}
 	}
 
+	public void Back(View view){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -118,14 +123,14 @@ public class LoginActivity extends Activity {
 						suc=1;
 						break;
 					}else{
-						mPasswordView
-						.setError(getString(R.string.error_incorrect_password));
-				mPasswordView.requestFocus();
+						mPasswordView.setError(getString(R.string.error_incorrect_password));
+						mPasswordView.requestFocus();
+						passfail = 1;
 					}
 				
 				}
 			}
-			if (suc!=1){
+			if (suc!=1 && passfail==0){
 				mEmailView.setError(getString(R.string.error_incorrect_email));
 		        mEmailView.requestFocus();
 			}

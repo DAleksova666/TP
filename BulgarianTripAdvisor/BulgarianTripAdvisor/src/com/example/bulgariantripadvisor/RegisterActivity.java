@@ -86,11 +86,6 @@ public class RegisterActivity extends Activity implements OnClickListener {
 					focusView2 = editText2;
 					cancel=true;
 				}
-				if (name[3].equals(myEditText3)) {
-					((TextView) editText3).setError(getString(R.string.error_existing_password));
-					focusView2 = editText3;
-					cancel=true;
-				}
 		    }		
 
 			if (!cancel){

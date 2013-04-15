@@ -12,8 +12,7 @@
     <string name="title_activity_hotel">Hotel</string>
     <string name="title_activity_city">Hotels</string>
     <string name="title_activity_choose">Choose</string>
-    <string name="title_activity_things_to_do">ThingsToDoActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_thing">ThingActivity</string>
+    <string name="title_activity_things_to_do">ThingsToDo</string>
+    <string name="title_activity_thing">Thing</string>
 
 </resources>

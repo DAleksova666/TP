@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 public class HotelsActivity extends ListActivity{
 	
-	static final String[] CITIES= new String[] {"Sofia"};
+	static final String[] CITIES= new String[] {"Sofia","Velingrad","SunnyBeach"};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,24 @@ public class HotelsActivity extends ListActivity{
 
 		String item = (String) getListAdapter().getItem(position);
 		
-		if (item.equals("Sofia"))
+		/*if (item.equals("Sofia"))
 		{
 			Intent intent = new Intent(this, CityActivity.class);
 			intent.putExtra("tablename", item);
 			startActivity(intent);
 		}
+		if (item.equals("Velingrad"))
+		{
+			Intent intent = new Intent(this, CityActivity.class);
+			intent.putExtra("tablename", item);
+			startActivity(intent);
+		}
+		if (item.equals("SunnyBeach"))
+		{*/
+			Intent intent = new Intent(this, CityActivity.class);
+			intent.putExtra("tablename", item);
+			startActivity(intent);
+		//}
 			
 	}
 

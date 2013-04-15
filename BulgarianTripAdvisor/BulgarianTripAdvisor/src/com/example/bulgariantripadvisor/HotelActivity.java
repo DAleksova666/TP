@@ -109,6 +109,47 @@ public class HotelActivity extends Activity {
 		        this.setContentView(rlayout);
 		} 
 		
+		if(name.equals("Balneo Complex and Spa Aquatonik")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundbalneocomplexandspaaquatonik);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Bor Spa-Club")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundborspaclub);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Spa Hotel Dvoretsa")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundspahoteldvoretsa);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Grand Hotel Velingrad")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundgrandhotelvelingrad);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Park Hotel Olymp")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundparkhotelolymp);
+		        this.setContentView(rlayout);
+		} 
+		
+		if(name.equals("Majestic Hotel")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundmajestichotel);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Iberostar Sunny Beach Resort")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundiberostarsunnybeachresort);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Helena Sands Hotel")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundhelenasandshotel);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("MPM Orpheus Boutique Hotel")){
+		       rlayout.setBackgroundResource(R.drawable.backgroundmpmorpheusboutiquehotel);
+		        this.setContentView(rlayout);
+		} 
+		if(name.equals("Dune Hotel")){
+		       rlayout.setBackgroundResource(R.drawable.backgrounddunehotel);
+		        this.setContentView(rlayout);
+		} 
 	}
 
 	@Override
