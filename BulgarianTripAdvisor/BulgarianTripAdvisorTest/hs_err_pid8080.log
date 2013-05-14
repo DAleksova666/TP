@@ -1,0 +1,83 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:3494), pid=8080, tid=5880
+#  Error: ShouldNotReachHere()
+#
+# JRE version: 6.0_37-b06
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.12-b01 mixed mode windows-amd64 compressed oops)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000020c000):  JavaThread "Unknown thread" [_thread_in_vm, id=5880, stack(0x0000000002640000,0x0000000002740000)]
+
+Stack: [0x0000000002640000,0x0000000002740000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000000000020c000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=5880, stack(0x0000000002640000,0x0000000002740000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042f000 	D:\Programs\Java\bin\javaw.exe
+0x0000000077c60000 - 0x0000000077e09000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077b40000 - 0x0000000077c5f000 	C:\Windows\system32\kernel32.dll
+0x000007fefe1b0000 - 0x000007fefe21c000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefec40000 - 0x000007fefed1b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefe670000 - 0x000007fefe70f000 	C:\Windows\system32\msvcrt.dll
+0x000007fefec20000 - 0x000007fefec3f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007feffbe0000 - 0x000007feffd0d000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077580000 - 0x000000007767a000 	C:\Windows\system32\USER32.dll
+0x000007fefe600000 - 0x000007fefe667000 	C:\Windows\system32\GDI32.dll
+0x000007feffac0000 - 0x000007fefface000 	C:\Windows\system32\LPK.dll
+0x000007fefeb50000 - 0x000007fefec19000 	C:\Windows\system32\USP10.dll
+0x000007fefe490000 - 0x000007fefe4be000 	C:\Windows\system32\IMM32.DLL
+0x000007feffad0000 - 0x000007feffbd9000 	C:\Windows\system32\MSCTF.dll
+0x000007fefe080000 - 0x000007fefe0c0000 	C:\Windows\system32\nvinitx.dll
+0x000000006d800000 - 0x000000006dfbb000 	D:\Programs\Java\bin\server\jvm.dll
+0x000007fefb1b0000 - 0x000007fefb1eb000 	C:\Windows\system32\WINMM.dll
+0x000000006d770000 - 0x000000006d77e000 	D:\Programs\Java\bin\verify.dll
+0x000000006d3b0000 - 0x000000006d3d7000 	D:\Programs\Java\bin\java.dll
+0x000000006d360000 - 0x000000006d380000 	D:\Programs\Java\bin\instrument.dll
+0x000000006d7c0000 - 0x000000006d7d2000 	D:\Programs\Java\bin\zip.dll
+0x0000000077e30000 - 0x0000000077e37000 	C:\Windows\system32\PSAPI.DLL
+
+VM Arguments:
+jvm_args: -javaagent:D:\Programs\Eclipse\configuration\org.eclipse.osgi\bundles\239\1\.cp\jacocoagent.jar=includes=*,excludes=,exclclassloader=sun.reflect.DelegatingClassLoader,output=tcpclient,port=57676 -Dfile.encoding=Cp1251 -Xbootclasspath:C:\Users\Dani\android-sdks\platforms\android-17\android.jar 
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 57677 -testLoaderClass org.eclipse.jdt.internal.junit.runner.junit3.JUnit3TestLoader -loaderpluginname org.eclipse.jdt.junit.runtime -classNames com.example.bulgariantripadvisor.test.MainActivityTest
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH="C:\Program Files (x86)\Java\jre7\lib\ext\QTJava.zip"
+PATH=C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;
+USERNAME=Dani
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 4054408k(991464k free), swap 8106964k(3631104k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.12-b01) for windows-amd64 JRE (1.6.0_37-b06), built on Sep 24 2012 11:45:14 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Mon May 13 14:58:50 2013
+elapsed time: 0 seconds
+
